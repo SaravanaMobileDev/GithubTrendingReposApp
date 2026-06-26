@@ -7,6 +7,22 @@
 
 import Combine
 
-final class ReposRemoteDataSourceImpl {
+final class ReposRemoteDataSourceImpl: ReposRemoteDataSource {
+    private let apiClient: APIClient
+    
+    init(apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+    func fetchRepositories(_ page: Int) -> AnyPublisher<[RepositoryDTO], NetworkError> {
+        let endpoint = RepositoryEndpoint.trendingRepositories(page: page)
+        
+        return apiClient
+            .request(for: endpoint)
+            .map {
+                (response: ReposResponseDTO) in
+                response.items
+            }
+            .eraseToAnyPublisher()
+    }
     
 }

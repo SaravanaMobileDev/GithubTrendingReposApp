@@ -11,7 +11,7 @@ protocol ReposRemoteDataSource {
     func fetchRepositories(
         _ page: Int
     ) -> AnyPublisher<
-        ReposResponseDTO,
-        Error
+        [RepositoryDTO],
+        NetworkError
     >
 }

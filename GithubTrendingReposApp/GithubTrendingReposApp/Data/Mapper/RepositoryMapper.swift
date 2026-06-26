@@ -17,7 +17,7 @@ final class RepositoryMapper {
             name: dto.name,
             description: dto.description,
             stars: dto.stargazers_count,
-            avatarURL: dto.owner.avatarURL
+            avatarURL: URL(string: dto.owner.avatarURL)
         )
     }
 }

@@ -14,7 +14,7 @@ final class APIClientImpl: APIClient {
     
     private let decoder: JSONDecoder
     
-    init(_ session: URLSession, _ decoder: JSONDecoder) {
+    init(_ session: URLSession = .shared, _ decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
         self.decoder = decoder
     }
