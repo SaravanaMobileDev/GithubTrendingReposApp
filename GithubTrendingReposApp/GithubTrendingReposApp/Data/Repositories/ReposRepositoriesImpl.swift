@@ -21,10 +21,10 @@ final class ReposRepositoriesImpl: ReposRepositoryProtocol {
             .fetchRepositories(page)
             .handleEvents(
                 receiveOutput:  { [weak self] response in
-                self?.localDataSource.save(response.items)
+                self?.localDataSource.save(response)
             })
             .map { response in
-                response.items.map {
+                response.map {
                     RepositoryMapper().map(dto: $0)
                 }
             }

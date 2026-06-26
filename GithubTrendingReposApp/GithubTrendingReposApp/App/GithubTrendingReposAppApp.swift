@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct GithubTrendingReposAppApp: App {
+    private let container = AppContainer()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RepositoryListView(viewModel: container.repoViewModel)
         }
     }
 }

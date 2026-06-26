@@ -14,10 +14,10 @@ import Foundation
 ///  UI Models
 ///
 
-struct Repository {
+struct Repository: Hashable, Identifiable {
     let id: Int
     let name: String
-    let description: String
+    let description: String?
     let stars: Int
-    let avatarURL: String?
+    let avatarURL: URL?
 }
